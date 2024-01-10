@@ -1,0 +1,74 @@
+{
+  "name": "ui-kit-fe",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ui-kit-fe/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/ui-kit-fe"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ui-kit-fe:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ui-kit-fe:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "ui-kit-fe:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ui-kit-fe:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ui-kit-fe:build:development"
+        },
+        "production": {
+          "buildTarget": "ui-kit-fe:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../coverage/apps/ui-kit-fe"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "ui-kit-fe:build"
+      }
+    }
+  },
+  "tags": []
+}
