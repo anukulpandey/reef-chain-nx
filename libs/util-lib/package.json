@@ -1,6 +1,9 @@
 {
   "name": "@reef-chain/util-lib",
   "version": "0.0.1",
+  "scripts":{
+    "build": "tsc && vite build && dts-bundle-generator --config ./dts-build-generator.config.js"
+  },
   "dependencies": {
     "tslib": "^2.3.0",
     "@polkadot/extension-inject": "^0.46.5",
@@ -11,6 +14,8 @@
     "axios": "^1.6.2",
     "bignumber.js": "^9.1.2",
     "pusher-js": "^8.2.0",
+    "dts-bundle-generator": "^7.1.0",
+    "vite": "^4.0.4",
     "ethers": "~5.5.4",
     "firebase": "^10.7.0"
   },

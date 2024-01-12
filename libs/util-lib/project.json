@@ -5,15 +5,11 @@
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
+      "executor": "nx:run-script",
       "options": {
-        "outputPath": "libs/util-lib/dist",
-        "main": "libs/util-lib/src/index.ts",
-        "tsConfig": "libs/util-lib/tsconfig.lib.json",
-        "assets": ["libs/util-lib/*.md"]
+          "script": "build"
       }
-    },
+  },
     "publish": {
       "command": "node tools/scripts/publish.mjs util-lib {args.ver} {args.tag}",
       "dependsOn": ["build"]
