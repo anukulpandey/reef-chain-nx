@@ -1,0 +1,16 @@
+{
+  "name": "@reef-chain/react-lib",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "mb": "microbundle --jsx 'React.createElement' --jsxImportSource react --globals react/jsx-runtime=jsx --format modern,cjs",
+    "build": "yarn run mb"
+  },
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  }
+}

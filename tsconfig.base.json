@@ -15,9 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@reef-chain/evm-provider": ["libs/evm-provider/src/index.ts"],
+      "@reef-chain/react-lib": ["libs/react-lib/src/index.ts"],
       "@reef-chain/ui-kit": ["libs/ui-kit/src/index.ts"],
       "@reef-chain/util-lib": ["libs/util-lib/src/index.ts"],
-      "@reef-chain/evm-provider": ["libs/evm-provider/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
