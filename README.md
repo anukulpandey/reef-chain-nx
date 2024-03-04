@@ -9,6 +9,7 @@
     - `new-reef-app`
     - `ui-kit-fe`
   - `libs`
+    - `evm-provider`
     - `ui-kit`
     - `util-lib`
    
