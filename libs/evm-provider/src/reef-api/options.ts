@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { derive as ormlDerives } from '@open-web3/orml-api-derive';
 import { ApiOptions } from '@polkadot/api/types';
 import { DeriveCustom } from '@polkadot/api-base/types';

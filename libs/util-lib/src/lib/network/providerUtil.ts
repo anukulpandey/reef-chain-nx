@@ -1,13 +1,19 @@
-import { Provider } from "@reef-defi/evm-provider";
+import { Provider } from "@reef-chain/evm-provider";
 import { WsProvider } from "@polkadot/api";
 import { Subject } from "rxjs";
 import { WsConnectionState } from "../reefState/ws-connection-state";
+
+export type InitProvider = (
+  providerUrl: string,
+  providerConnStateSubj?: Subject<WsConnectionState>
+) => Promise<Provider>;
 
 export async function initProvider(
   providerUrl: string,
   providerConnStateSubj?: Subject<WsConnectionState>
 ) {
   const newProvider = new Provider({
+    //@ts-ignore
     provider: new WsProvider(providerUrl),
   });
   try {

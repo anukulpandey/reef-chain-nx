@@ -1,9 +1,10 @@
-import { Provider } from "@reef-defi/evm-provider";
+// @ts-nocheck
+import { Provider } from "@reef-chain/evm-provider";
 import { getSpecTypes } from "@polkadot/types-known";
 import { Metadata, TypeRegistry } from "@polkadot/types";
 import type { AnyJson } from "@polkadot/types/types";
 import type { Call } from "@polkadot/types/interfaces";
-import { base64Decode, base64Encode } from "@reef-defi/util-crypto";
+import { base64Decode, base64Encode } from "@polkadot/util-crypto";
 import { ethers } from "ethers";
 import { Fragment, JsonFragment } from "@ethersproject/abi";
 import { REEF_ADDRESS } from "../token";
@@ -46,7 +47,7 @@ export async function getContractAbi(contractAddress: string): Promise<any[]> {
           res = res[0];
         }
         let abiArr: any[] = [];
-        res.forEach((ercDefinitionsObj:any) => {
+        res.forEach(ercDefinitionsObj => {
           Object.keys(ercDefinitionsObj).forEach(ercKey => {
             const ercDefinitionsObjAbi = ercDefinitionsObj[ercKey];
             abiArr = abiArr.concat(ercDefinitionsObjAbi);
@@ -99,7 +100,7 @@ export async function decodePayloadMethod(
       // @ts-ignore
       api.registry,
       api.runtimeChain.toString(),
-      api.runtimeVersion.specName,
+      api.runtimeVersion.specName.toString(),
       api.runtimeVersion.specVersion
     ) as unknown as Record<string, string>;
   }
@@ -170,7 +171,6 @@ export async function decodePayloadMethod(
         /* empty */
       }
     }
-    // @ts-ignore
     decodedResponse.vm["evm"] = {
       contractAddress,
       decodedData,

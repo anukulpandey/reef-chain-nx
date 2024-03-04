@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable prefer-promise-reject-errors */
 import { BigNumber, BigNumberish } from '@ethersproject/bignumber';
 import { BytesLike, Bytes } from '@ethersproject/bytes';

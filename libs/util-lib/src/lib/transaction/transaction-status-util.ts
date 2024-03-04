@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { Observable, Observer, Subject } from "rxjs";
 import { shareReplay } from "rxjs/operators";
 import { ApiPromise } from "@polkadot/api";
@@ -9,7 +10,7 @@ export function parseAndRethrowErrorFromObserver(
   observer: Observer<TransactionStatusEvent>,
   txIdent: string
 ) {
-  return (err:Error) => {
+  return err => {
     const parsedErr = toTxErrorCodeValue(err);
     let reError =
       !!parsedErr.code && parsedErr.code != TX_STATUS_ERROR_CODE.ERROR_UNDEFINED
@@ -34,7 +35,7 @@ export function getEvmTransactionStatus$(
         } as TransactionStatusEvent);
         // console.log('tx in progress =', tx.hash);
         tx.wait()
-          .then(async (receipt:any) => {
+          .then(async receipt => {
             // console.log("transfer included in block=", receipt.blockHash);
             observer.next({
               txStage: TxStage.INCLUDED_IN_BLOCK,
@@ -70,7 +71,7 @@ export function getEvmTransactionStatus$(
               }
             );
           })
-          .catch((err:Error) => {
+          .catch(err => {
             console.log("transfer tx.wait ERROR=", err.message);
 
             observer.error(new TxStatusError(err.message, txIdent));

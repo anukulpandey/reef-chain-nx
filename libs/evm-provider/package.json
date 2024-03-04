@@ -1,6 +1,6 @@
 {
   "name": "@reef-chain/evm-provider",
-  "version": "0.0.1",
+  "version": "2.0.3",
   "scripts": {
     "build": "rm -rf build&&rm tsconfig.tsbuildinfo&&polkadot-dev-build-ts&&cp yarn.lock build/yarn.lock",
     "build:release": "polkadot-ci-ghact-build",
@@ -37,6 +37,5 @@
   },
   "type": "commonjs",
   "main": "./src/index.js",
-  "typings": "./src/index.d.ts",
-  "packageManager": "yarn@3.6.1"
+  "typings": "./src/index.d.ts"
 }

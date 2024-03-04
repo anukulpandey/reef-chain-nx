@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ApiInterfaceRx } from '@polkadot/api/types';
 import { memo } from '@polkadot/api-derive/util';
 import { Observable, of } from 'rxjs';

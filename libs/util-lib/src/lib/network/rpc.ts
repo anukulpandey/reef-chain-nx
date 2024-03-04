@@ -1,4 +1,5 @@
-import { Signer } from "@reef-defi/evm-provider";
+//@ts-nocheck
+import { Signer } from "@reef-chain/evm-provider";
 import { BigNumber, Contract, Signer as EthersSigner } from "ethers";
 import { ERC20 } from "../token/abi/ERC20";
 import { ReefSigner } from "../account/accountModel";
@@ -18,11 +19,8 @@ export const checkIfERC20ContractExist = async (
       signer as unknown as EthersSigner
     );
     // TODO add additional checkers to be certain of Contract existence
-    // @ts-ignore
     const name = await contract.name();
-    // @ts-ignore
     const symbol = await contract.symbol();
-    // @ts-ignore
     const decimals = await contract.decimals();
     return { name, symbol, decimals };
   } catch (error) {
@@ -59,12 +57,9 @@ export const contractToToken = async (
 ): Promise<Token> => {
   const contractToken = createEmptyToken();
   contractToken.address = tokenContract.address;
-  // @ts-ignore
   contractToken.name = await tokenContract.name();
-  // @ts-ignore
   contractToken.symbol = await tokenContract.symbol();
-  // @ts-ignore
-  contractToken.balance = await tokenContract.balanceOf(signer.evmAddress);// @ts-ignore
+  contractToken.balance = await tokenContract.balanceOf(signer.evmAddress);
   contractToken.decimals = await tokenContract.decimals();
   return contractToken;
 };
@@ -75,7 +70,6 @@ export const balanceOf = async (
   signer: Signer
 ): Promise<BigNumber | null> => {
   const contract = (await getREEF20Contract(address, signer))?.contract;
-  // @ts-ignore
   return contract ? contract.balanceOf(balanceAddress) : null;
 };
 

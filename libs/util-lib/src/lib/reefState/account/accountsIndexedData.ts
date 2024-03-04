@@ -1,3 +1,4 @@
+//@ts-nocheck
 import {
   catchError,
   combineLatest,
@@ -21,12 +22,10 @@ import {
 } from "../model/statusDataObject";
 import { getAddressesErrorFallback } from "./errorUtil";
 import { httpClientInstance$ } from "../../graphql/httpClient";
-import {
-  AccountIndexedTransactionType,
-  getLatestBlockAccountUpdates$,
-} from "../../network/latestBlock";
+import { getLatestBlockAccountUpdates$ } from "../latestBlock";
 import { getEvmAddressQuery } from "../../graphql/accounts.gql";
 import { queryGql$ } from "../../graphql/gqlUtil";
+import { AccountIndexedTransactionType } from "../latestBlockModel";
 
 // eslint-disable-next-line camelcase
 interface AccountEvmAddrData {
@@ -38,7 +37,7 @@ interface AccountEvmAddrData {
 
 function toAccountEvmAddrData(result: any): AccountEvmAddrData[] {
   return result.data.accounts.map(
-    (acc:any) =>
+    acc =>
       ({
         address: acc.id,
         isEvmClaimed: !!acc.evmAddress,

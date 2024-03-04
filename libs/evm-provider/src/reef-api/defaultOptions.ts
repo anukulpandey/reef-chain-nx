@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ApiOptions } from '@polkadot/api/types';
 
 export const defaultOptions: ApiOptions = {

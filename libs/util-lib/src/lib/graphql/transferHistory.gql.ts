@@ -4,12 +4,11 @@ export const TRANSFER_HISTORY_QUERY = `
       where: {
         OR: [{ from: { id_eq: $accountId } }, { to: { id_eq: $accountId } }]
       }
-      limit: 15
+      limit: 35
       orderBy: timestamp_DESC
     ) {
       timestamp
       amount
-      feeAmount
       fromEvmAddress
       id
       nftId
@@ -22,18 +21,15 @@ export const TRANSFER_HISTORY_QUERY = `
         type
         contractData
       }
-      event {
-        index
-      }
-      extrinsic {
-        id
-        index
-        block {
-          id
-          height
-          hash
-        }
-      }
+      signedData
+      extrinsicHash
+      extrinsicId
+      eventIndex
+      extrinsicIndex
+      blockHeight
+      blockHash
+      finalized
+      reefswapAction
       from {
         id
         evmAddress
@@ -42,6 +38,7 @@ export const TRANSFER_HISTORY_QUERY = `
         id
         evmAddress
       }
+      reefswapAction
     }
   }
 `;

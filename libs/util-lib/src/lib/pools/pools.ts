@@ -1,5 +1,5 @@
-// @ts-nocheck
-import { Signer } from "@reef-defi/evm-provider";
+//@ts-nocheck
+import { Signer } from "@reef-chain/evm-provider";
 import { Contract } from "ethers";
 import { getReefswapFactory } from "../network/rpc";
 import {

@@ -1,10 +1,11 @@
+//@ts-nocheck
 import {
   getEvmTransactionStatus$,
   getNativeTransactionStatusHandler$,
   parseAndRethrowErrorFromObserver,
 } from "./transaction-status-util";
 import { from, Observable, of, switchMap } from "rxjs";
-import { Provider, Signer } from "@reef-defi/evm-provider";
+import { Provider, Signer } from "@reef-chain/evm-provider";
 import type { Signer as SignerInterface } from "@polkadot/api/types";
 import { BigNumber, Contract } from "ethers";
 import { getEvmAddress } from "../account/addressUtil";
@@ -27,7 +28,7 @@ export function nativeTransferSigner$(
         fromAddr,
         toAddress,
         signer.provider,
-        signer.signingKey
+        signer.signingKey as any
       )
     )
   );
@@ -57,7 +58,7 @@ export function nativeTransfer$(
 
     provider.api.tx.balances
       .transfer(toAddress, amount)
-      .signAndSend(fromAddress, { signer: signingKey }, handler)
+      .signAndSend(fromAddress, { signer: signingKey as any }, handler)
       .then(unsub => {
         status$.subscribe(null, null, () => unsub());
       })
@@ -69,7 +70,7 @@ export function nativeTransfer$(
 
 export function reef20Transfer$(
   to: string,
-  provider:any,
+  provider,
   tokenAmount: string,
   tokenContract: Contract,
   txIdent: string = Math.random().toString()
@@ -89,7 +90,6 @@ export function reef20Transfer$(
         txIdent,
         txStage: TxStage.SIGNATURE_REQUEST,
       });
-      // @ts-ignore
       const txPromise = tokenContract.transfer(...ARGS, {
         customData: {
           storageLimit: STORAGE_LIMIT,

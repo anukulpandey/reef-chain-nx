@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { KeyringPair } from '@polkadot/keyring/types';
 import type { Registry } from '@polkadot/types/types';
 import type {

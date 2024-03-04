@@ -85,6 +85,7 @@ export interface TransferExtrinsic {
   index: number;
   blockId: string;
   blockHeight: number;
+  hash: string;
 }
 
 export interface TokenTransfer {
@@ -96,4 +97,6 @@ export interface TokenTransfer {
   extrinsic: TransferExtrinsic;
   url: string;
   success: boolean;
+  reefswapAction?: string;
+  type: string;
 }

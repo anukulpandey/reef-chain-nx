@@ -1,4 +1,4 @@
-import { Provider } from "@reef-defi/evm-provider";
+import { Provider } from "@reef-chain/evm-provider";
 
 export const getEvmAddress = async (
   address: string,
@@ -7,8 +7,8 @@ export const getEvmAddress = async (
   if (address.length !== 48 || address[0] !== "5") {
     return address;
   }
-  // @ts-ignore
-  const evmAddress = await provider.api.query.evmAccounts.evmAddresses(address);
+  //@ts-ignore
+  const evmAddress = await provider.api.query['evmAccounts'].evmAddresses(address);
   const addr = (evmAddress as any).toString();
 
   if (!addr) {

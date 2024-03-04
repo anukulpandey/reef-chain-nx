@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   catchError,
   combineLatest,
@@ -10,7 +11,7 @@ import {
 } from "rxjs";
 import { Contract } from "ethers";
 import axios from "axios";
-import { Signer } from "@reef-defi/evm-provider";
+import { Signer } from "@reef-chain/evm-provider";
 import { NFT, NFTMetadata } from "./tokenModel";
 import {
   FeedbackStatusCode,
@@ -19,7 +20,8 @@ import {
 } from "../reefState/model/statusDataObject";
 import { getContractTypeAbi } from "./tokenUtil";
 import { Signer as EthersSigner } from "@ethersproject/abstract-signer";
-import { IpfsUrlResolverFn } from "../reefState/initReefState";
+
+import { IpfsUrlResolverFn } from "../reefState/ipfsUrlResolverFn";
 
 const extractIpfsHash = (ipfsUri: string): string | null => {
   const ipfsProtocol = "ipfs://";
@@ -99,17 +101,17 @@ export const getResolveNftPromise = async (
       contractTypeAbi,
       signer as unknown as EthersSigner
     );
-    const uriPromise = (contractTypeAbi as any).some((fn:any) => fn.name === "uri")
-      ? (contract as any).uri(nft.nftId)
-      : (contract as any)
+    const uriPromise = (contractTypeAbi as any).some(fn => fn.name === "uri")
+      ? contract.uri(nft.nftId)
+      : contract
           .tokenURI(nft.nftId)
-          .catch((err:Error) => console.log("error getting contract uri"));
+          .catch(reason => console.log("error getting contract uri"));
 
     return await uriPromise
-      .then((metadataUri:any) => resolveUriToUrl(metadataUri, nft, ipfsUrlResolver))
+      .then(metadataUri => resolveUriToUrl(metadataUri, nft, ipfsUrlResolver))
       .then(axios.get)
-      .then((jsonStr:any) => resolveImageData(jsonStr.data, nft, ipfsUrlResolver))
-      .then((nftUri:any) => ({ ...nft, ...nftUri }));
+      .then(jsonStr => resolveImageData(jsonStr.data, nft, ipfsUrlResolver))
+      .then(nftUri => ({ ...nft, ...nftUri }));
   } catch (e: any) {
     console.log("ERROR getResolveNftPromise=", e);
     throw new Error(e.message);

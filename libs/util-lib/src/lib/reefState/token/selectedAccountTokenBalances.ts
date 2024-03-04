@@ -1,4 +1,4 @@
-// @ts-nocheck
+//@ts-nocheck
 // TODO replace with our own from lib and remove
 import {
   REEF_ADDRESS,

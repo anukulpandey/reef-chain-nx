@@ -1,8 +1,7 @@
-import { Provider, Signer } from "@reef-defi/evm-provider";
+import { Provider, Signer } from "@reef-chain/evm-provider";
 import type { Signer as InjectedSigner } from "@polkadot/api/types";
-import { web3FromSource } from "@reef-defi/extension-dapp";
 import { ReefAccount } from "./accountModel";
-import { REEF_EXTENSION_IDENT } from "@reef-defi/extension-inject";
+import { web3FromSource, REEF_EXTENSION_IDENT } from "../extension";
 import { accountsJsonSigningKeySubj } from "../reefState/account/setAccounts";
 import {
   SignerPayloadJSON,
@@ -52,7 +51,7 @@ export const getAccountSigner = async (
   let signingKey: InjectedSigner | undefined =
     injSignerOrSource as InjectedSigner;
   if (!injSignerOrSource || typeof injSignerOrSource === "string") {
-    signingKey = await getAccountInjectedSigner(injSignerOrSource);
+    signingKey = await getAccountInjectedSigner(injSignerOrSource?.toString());
   }
 
   if (!addressSigners.has(address)) {
@@ -104,7 +103,7 @@ export class ReefSigningKeyWrapper implements InjectedSigner {
 
 export class ReefSignerWrapper extends Signer {
   constructor(provider: Provider, address: string, signingKey: InjectedSigner) {
-    super(provider, address, signingKey);
+    super(provider, address, signingKey as any);
   }
 
   override sendTransaction(
