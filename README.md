@@ -6,6 +6,7 @@
 ## Current Structure of Monorepo
 - `@reef-chain` _(monorepo)_
   - `apps`
+    - `app`
     - `new-reef-app`
     - `ui-kit-fe`
   - `libs`
