@@ -11,6 +11,7 @@
     - `ui-kit-fe`
   - `libs`
     - `evm-provider`
+    - `react-lib`
     - `ui-kit`
     - `util-lib`
    
