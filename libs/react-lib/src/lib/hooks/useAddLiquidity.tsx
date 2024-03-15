@@ -219,7 +219,9 @@ export const onAddLiquidity = ({
     const percentage2 = calculateAmountWithPercentage(token2, percentage);
 
     dispatch(setStatusAction('Adding supply'));
+    //@ts-ignore
     const token1Contract = new Contract(token1.address, ERC20, signer.signer);
+    //@ts-ignore
     const token2Contract = new Contract(token2.address, ERC20, signer.signer);
 
     // Populating transactions

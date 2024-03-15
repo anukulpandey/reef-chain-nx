@@ -1,4 +1,4 @@
-import { BigNumber, ContractInterface, utils } from "ethers";
+import { BigNumber, ContractInterface } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import {
   ContractType,
@@ -21,8 +21,6 @@ import {
 import { ERC20 } from "./abi/ERC20";
 import { ERC721Uri } from "./abi/ERC721Uri";
 import { ERC1155Uri } from "./abi/ERC1155Uri";
-
-const { parseUnits, formatEther } = utils;
 
 const getReefTokenPoolReserves = (
   reefTokenPool: Pool,

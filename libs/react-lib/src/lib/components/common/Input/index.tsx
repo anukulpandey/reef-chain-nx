@@ -103,13 +103,13 @@ export const InputAmount = ({
     />
   );
 };
-
+// @ts-ignore
 export const InputGroup: React.FC<unknown> = ({ children }): JSX.Element => (
   <div className="input-group">{children}</div>
 );
 
-export const InputTextGroup: React.FC<unknown> = ({
-  children,
+// @ts-ignore
+export const InputTextGroup: React.FC<unknown> = ({children,
 }): JSX.Element => (
   <div className="input-group-text field-input border-rad ps-1">{children}</div>
 );

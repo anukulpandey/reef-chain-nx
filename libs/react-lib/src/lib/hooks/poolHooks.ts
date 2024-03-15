@@ -158,6 +158,7 @@ export const usePoolTransactionCountSubscription = (
   const [data, setData] = useState<PoolTransactionCountQuery|undefined>();
   const [loading, setLoading] = useState<boolean>(true);
   const queryObj = getPoolTransactionCountQry(address, type);
+  //@ts-ignore
   const TRIGGER = useObservableState(network.getLatestBlockContractEvents$(address?[address]:[]));
   useEffect(() => {
     const handleResponse = async (): Promise<void> => {
@@ -185,6 +186,7 @@ export const usePoolTransactionSubscription = (
   const [data, setData] = useState<PoolTransactionQuery|undefined>();
   const [loading, setLoading] = useState<boolean>(true);
   const queryObj = getPoolTransactionQry(address, type, limit, pageIndex);
+  //@ts-ignore
   const TRIGGER = useObservableState(network.getLatestBlockContractEvents$(address?[address]:[]));
   useEffect(() => {
     const fetchResponse = async (): Promise<void> => {

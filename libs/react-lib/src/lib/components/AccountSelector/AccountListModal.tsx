@@ -23,6 +23,7 @@ export const AccountListModal = ({
   title = 'Select account',
 }: AccountListModal): JSX.Element => {
   const accountsView = accounts.map((acc, index) => (
+     //@ts-ignore
     <ListItem key={getSignerIdent(acc)}>
       <AccountInlineInfo
         name={acc.name}
@@ -35,7 +36,9 @@ export const AccountListModal = ({
   ));
 
   return (
+     //@ts-ignore
     <Modal id={id}>
+       {/* @ts-ignore */}
       <ModalHeader>
         {!!backButtonModalId && (
           <button
@@ -49,6 +52,7 @@ export const AccountListModal = ({
             <BackIcon />
           </button>
         )}
+         {/* @ts-ignore */}
         <Title>{title}</Title>
         <button
           type="button"

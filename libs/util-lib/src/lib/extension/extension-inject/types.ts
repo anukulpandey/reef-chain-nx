@@ -7,7 +7,7 @@ import type { ProviderInterface } from "@polkadot/rpc-provider/types";
 import type { ExtDef } from "@polkadot/types/extrinsic/signedExtensions/types";
 
 import { Provider } from "@reef-chain/evm-provider";
-import { Signer as ReefVMSigner } from "@reef-chain/evm-provider/Signer";
+import { Signer as ReefVMSigner } from "@reef-chain/evm-provider";
 
 type This = typeof globalThis;
 

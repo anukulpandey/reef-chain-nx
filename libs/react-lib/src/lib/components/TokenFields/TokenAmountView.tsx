@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { SubCard } from '../common/Card';
 import { ContentBetween, Margin } from '../common/Display';

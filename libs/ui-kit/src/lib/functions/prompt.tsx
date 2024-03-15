@@ -1,3 +1,4 @@
+import React from "react"
 import Prompt, { Props as NewPrompt } from "../components/molecules/Prompt"
 import Container from "../helpers/Container"
 

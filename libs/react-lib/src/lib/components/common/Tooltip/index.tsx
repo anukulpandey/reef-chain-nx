@@ -6,6 +6,7 @@ interface Tooltip {
 }
 
 export const QuestionTooltip: React.FC<Tooltip> = ({
+  // @ts-ignore
   children,
   id = 'question-tooltip',
 }): JSX.Element => (

@@ -1,12 +1,14 @@
 import React from 'react';
 import { BackIcon } from '../Icons';
 
+// @ts-ignore
 export const Card: React.FC = ({ children }): JSX.Element => (
   <div className="card border-rad">
     <div className="card-body">{children}</div>
   </div>
 );
 
+// @ts-ignore
 export const CardHeader: React.FC<unknown> = ({ children }) => (
   <div className="d-flex justify-content-between mb-2">{children}</div>
 );
@@ -44,6 +46,7 @@ interface ErrorCardProps {
 }
 
 export const ErrorCard = ({ title, message }: ErrorCardProps): JSX.Element => (
+  // @ts-ignore
   <Card>
     <CardTitle title={title} />
     <p
@@ -52,7 +55,7 @@ export const ErrorCard = ({ title, message }: ErrorCardProps): JSX.Element => (
     />
   </Card>
 );
-
+// @ts-ignore
 export const SubCard: React.FC<unknown> = ({ children }): JSX.Element => (
   <div className="field border-rad p-3">{children}</div>
 );

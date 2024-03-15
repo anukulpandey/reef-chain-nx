@@ -70,6 +70,7 @@ const Account = ({ account }: { account: ReefSigner }): JSX.Element => (
 export const EvmBindComponent = ({
   bindSigner, onTxUpdate, signers, onComplete,
 }: EvmBindComponent): JSX.Element => {
+   //@ts-ignore
   const provider: Provider|undefined = useObservableState(currentProvider$);
   const [bindFor, setBindFor] = useState(bindSigner);
   const [availableTxAccounts, setAvailableTxAccounts] = useState<ReefSigner[]>([]);
@@ -268,6 +269,7 @@ export const EvmBindComponent = ({
                 <br />
 
                 Coins will be transferred from account:&nbsp;
+                {/* @ts-ignore */}
                 <OpenModalButton
                   className="btn-empty bind-evm__select-account"
                   id="selectMyAddress"

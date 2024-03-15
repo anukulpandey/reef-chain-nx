@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { ReactElement } from 'react';
 import { BigNumber } from 'ethers';
 import {

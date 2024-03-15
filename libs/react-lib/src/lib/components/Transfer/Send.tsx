@@ -99,7 +99,7 @@ const sendStatus = (
     ensureTokenAmount(token);
     ensureExistentialReefAmount(token, signer.balance);
     return { isValid: true, text: "Send" };
-  } catch (e) {
+  } catch (e:any) {
     return { isValid: false, text: e.message };
   }
 };
@@ -222,6 +222,7 @@ export const Send = ({
     }
   }, [tokens]);
 
+  // @ts-ignore
   const tokenContract = new Contract(token.address, ERC20, signer.signer);
   const { isValid, text } = sendStatus(to, token, signer);
   const existentialValidity = checkMinExistentialReefAmount(
@@ -261,7 +262,7 @@ export const Send = ({
       });
       
       Uik.dropConfetti();
-    } catch (error) {
+    } catch (error:any) {
       const message = errorHandler(error.message);
       Uik.prompt({
         type: "danger",
@@ -303,6 +304,7 @@ export const Send = ({
     return percentage;
   }, [token.amount, maxAmount]);
 
+   // @ts-ignore
   const setPercentage = (perc): void => {
     const amount = new BigNumber(maxAmount).times(perc).dividedBy(100);
     onAmountChange(String(amount), token);

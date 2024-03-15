@@ -1,4 +1,3 @@
-export * from './lib/ui-kit';
 import "./lib/styles/index.scss"
 import components from "./lib/components"
 import functions from "./lib/functions"

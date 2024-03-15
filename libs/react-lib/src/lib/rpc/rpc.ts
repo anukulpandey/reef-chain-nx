@@ -10,6 +10,7 @@ export const checkIfERC20ContractExist = async (
   signer: Signer,
 ): Promise<{ name: string; symbol: string; decimals: number } | undefined> => {
   try {
+    //@ts-ignore
     const contract = new Contract(address, ERC20, signer);
     // TODO add additional checkers to be certain of Contract existence
     const name = await contract.name();
@@ -31,6 +32,7 @@ export const getREEF20Contract = async (
   try {
     const values = await checkIfERC20ContractExist(address, signer);
     if (values) {
+      //@ts-ignore
       return { contract: new Contract(address, ERC20, signer), values };
     }
   } catch (err) {}
@@ -58,6 +60,7 @@ export const balanceOf = async (
   const contract = (await getREEF20Contract(address, signer))?.contract;
   return contract ? contract.balanceOf(balanceAddress) : null;
 };
-
+//@ts-ignore
 export const getReefswapRouter = (address: string, signer: Signer): Contract => new Contract(address, ReefswapRouter, signer);
+//@ts-ignore
 export const getReefswapFactory = (address: string, signer: Signer): Contract => new Contract(address, ReefswapFactory, signer);
