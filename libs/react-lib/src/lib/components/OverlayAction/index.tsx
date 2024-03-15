@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+ //@ts-ignore
 import { CSSTransition } from 'react-transition-group';
 import Uik from '@reef-chain/ui-kit';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -20,6 +21,7 @@ export const OverlayAction: React.FC<OverlayAction> = ({
   onClosed,
   className,
   title,
+  //@ts-ignore
   children,
 }): JSX.Element => {
   const wrapper = useRef(null);

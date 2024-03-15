@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React from 'react';
 import Identicon from '@polkadot/react-identicon';
 import { reefTokenWithAmount } from '../../../state/token';

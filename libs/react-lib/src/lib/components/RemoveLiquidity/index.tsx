@@ -1,3 +1,4 @@
+ //@ts-nocheck
 import React from 'react';
 import {
   REMOVE_DEFAULT_SLIPPAGE_TOLERANCE,

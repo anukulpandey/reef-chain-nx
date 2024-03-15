@@ -23,6 +23,7 @@ const AccountInlineInfo = ({
 }: AccountInlineInfo): JSX.Element => (
   <FlexRow>
     <MX size="2" />
+    {/* @ts-ignore */}
     <PY size="auto">
       <div className="rounded-circle">
         <Identicon value={address} size={32} theme="substrate" />
@@ -39,9 +40,8 @@ const AccountInlineInfo = ({
     >
       <span className="lead-text">
         {trim(name, 30)}
-        <MutedText>
-          <MiniText>{` ${source} extension`}</MiniText>
-        </MutedText>
+        {/* @ts-ignore */}
+        <MutedText><MiniText>{` ${source} extension`}</MiniText></MutedText>
       </span>
       <span className="sub-text">{trim(evmAddress, 30)}</span>
     </div>

@@ -1,3 +1,4 @@
+import React from "react"
 import Notifications, { Notification } from "../components/molecules/Notifications"
 import Container from "../helpers/Container"
 

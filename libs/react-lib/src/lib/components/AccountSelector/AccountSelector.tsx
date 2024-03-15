@@ -3,17 +3,15 @@ import Uik from "@reef-chain/ui-kit";
 import "./AccountSelector.css";
 import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  Account,
-  AccountCreationData,
-  Extension,
-} from "@reef-chain/ui-kit/dist/ui-kit/components/organisms/AccountSelector/AccountSelector";
+ //@ts-ignore
+import type {Account,AccountCreationData,Extension,
+} from "@reef-chain/ui-kit";
 import { ReefSigner } from "../../state";
 import { toReefBalanceDisplay, trim } from "../../utils";
 import MetaMaskIcon from "./MetaMaskIcon";
 import { extension as reefExt } from "@reef-chain/util-lib";
-
 export type Network = "mainnet" | "testnet";
+
 export type Language = "en" | "hi";
 
 const availableExtensions: Extension[] = [
@@ -131,6 +129,7 @@ export const AccountSelector = ({
     };
   }, [selectedSigner]);
 
+   //@ts-ignore
   const onSelect = (account): void => {
     const acc = accounts.find(
       (acc: ReefSigner) => acc.address === account.address
@@ -185,6 +184,7 @@ export const AccountSelector = ({
         <Uik.AccountSelector
           isOpen={isOpen}
           onClose={() => setOpen(false)}
+           //@ts-ignore
           availableExtensions={extensions}
           selExtName={selExtName}
           onExtensionSelect={selectExtension}

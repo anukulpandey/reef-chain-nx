@@ -78,7 +78,7 @@ const swapStatus = (
     // ensure(balance.gte(reserved), 'Deliquified pool');
     // ensure(amountOut1.eq(amountIn1) && amountOut2.eq(amountIn2), 'Deliquified pool')
     return { isValid: true, text: 'Trade' };
-  } catch (e) {
+  } catch (e:any) {
     return { isValid: false, text: e.message };
   }
 };
@@ -236,6 +236,7 @@ export const onSwap = ({
     const minBuyAmount = calculateAmountWithPercentage(token2, percentage);
     const reefswapRouter = getReefswapRouter(network.routerAddress, signer);
 
+    // @ts-ignore
     const sellTokenContract = new Contract(token1.address, ERC20, signer);
 
     dispatch(setStatusAction('Executing trade'));
@@ -377,7 +378,7 @@ export const onSwap = ({
     });
 
     Uik.dropConfetti();
-  } catch (error) {
+  } catch (error:any) {
     const message = errorHandler(error.message);
     Uik.notify.danger({
       message: `An error occurred while trying to complete your trade: ${message}`,

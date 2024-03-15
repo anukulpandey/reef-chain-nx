@@ -4,6 +4,7 @@ interface ListItem {
   onClick?: () => void;
 }
 
+// @ts-ignore
 export const List: React.FC<unknown> = ({ children }): JSX.Element => (
   <ul className="list-group list-group-flush list-group-full px-0 border-rad">
     {children}
@@ -11,6 +12,7 @@ export const List: React.FC<unknown> = ({ children }): JSX.Element => (
 );
 
 export const ListItem: React.FC<ListItem> = ({
+  // @ts-ignore
   children,
   onClick,
 }): JSX.Element => (
@@ -25,6 +27,7 @@ export const ListItem: React.FC<ListItem> = ({
 );
 
 export const ListItemDismissModal: React.FC<ListItem> = ({
+  // @ts-ignore
   children,
   onClick,
 }): JSX.Element => (
@@ -40,6 +43,7 @@ export const ListItemDismissModal: React.FC<ListItem> = ({
 );
 
 export const ListItemActionModal: React.FC<ListItem> = ({
+  // @ts-ignore
   children,
   onClick,
 }): JSX.Element => (

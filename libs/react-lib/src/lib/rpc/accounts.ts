@@ -18,6 +18,7 @@ const getAccountInjectedSigner = async (
       .then((injected) => injected?.signer)
       .catch((err) => console.error('getAccountSigner error =', err));
     if (signer) {
+      //@ts-ignore
       accountSourceSigners.set(source, signer);
     }
   }
@@ -31,6 +32,7 @@ export const getAccountSigner = async (
   injSigner?: InjectedSigner,
 ): Promise<Signer | undefined> => {
   const iSigner = injSigner || (await getAccountInjectedSigner(source));
+  //@ts-ignore
   return iSigner ? new Signer(provider, address, iSigner) : undefined;
 };
 
@@ -40,6 +42,7 @@ export const getReefCoinBalance = async (
 ): Promise<BigNumber> => {
   const balance = await provider.api.derive.balances
     .all(address as any)
+    //@ts-ignore
     .then((res: DeriveBalancesAccountData) => BigNumber.from(res.freeBalance.toString(10)));
   return balance;
 };
@@ -76,6 +79,7 @@ const signerToReefSigner = async (
     address,
     source,
     genesisHash: genesisHash!,
+    //@ts-ignore
     sign: inj?.signer,
   };
 };
@@ -127,6 +131,7 @@ export const accountToSigner = async (
   sign: InjectedSigner,
   source: string,
 ): Promise<ReefSigner> => {
+  //@ts-ignore
   const signer = new Signer(provider, account.address, sign);
   return signerToReefSigner(
     signer,
@@ -163,6 +168,7 @@ export const getExtensionSigners = async (
     })),
   );
   const accountPromisses = extensionAccounts.flatMap(
+    //@ts-ignore
     ({ accounts, name, sig }) => accounts.map((account) => accountToSigner(account, provider, sig, name)),
   );
   const accounts = await Promise.all(accountPromisses);

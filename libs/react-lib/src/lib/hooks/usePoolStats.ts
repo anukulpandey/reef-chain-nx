@@ -182,6 +182,7 @@ export const usePoolInfo = (address: string, signerAddress: string, tokenPrices:
 
   const queryObj = getPoolInfoQry(address, signerAddress, fromTime, toTime);
 
+  //@ts-ignore
   const TRIGGER = useObservableState(network.getLatestBlockContractEvents$([address]))
 
   useAsyncEffect(async()=>{

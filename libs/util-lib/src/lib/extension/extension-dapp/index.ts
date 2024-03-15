@@ -154,8 +154,7 @@ export async function web3Enable(
     ? Promise.all(compatInits.map(c => c().catch(() => false)))
     : Promise.resolve([true]);
 
-  //@ts-ignore
-  let selectedWallet = undefined;
+  let selectedWallet:string|null = null;
   try {
     selectedWallet = localStorage.getItem(SELECTED_EXTENSION_IDENT);
   } catch (e) {

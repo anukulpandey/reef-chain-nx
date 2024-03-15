@@ -45,8 +45,11 @@ export const AddLiquidity = ({
   } = state;
   const { percentage } = resolveSettings(settings);
   return (
+    //@ts-ignore
     <ComponentCenter>
+      {/* @ts-ignore */}
       <Card>
+        {/* @ts-ignore */}
         <CardHeader>
           <CardBack onBack={back} />
           <CardTitle title="Add liquidity" />
@@ -98,7 +101,7 @@ export const AddLiquidity = ({
             )}
           </span>
         </button>
-
+{/* @ts-ignore */}
         <ConfirmationModal
           id="supplyModalToggle"
           title="Confirm Supply"

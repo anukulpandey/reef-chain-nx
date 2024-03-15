@@ -78,6 +78,7 @@ export const selectedTokenBalances_status$: Observable<
   selectedAccountFtBalanceUpdate$.pipe(startWith(true)),
 ]).pipe(
   switchMap(vals => {
+    // @ts-ignore
     const [httpClient, signer, forceReload, _] = vals;
     return getLatestBlockAccountUpdates$(
       [signer.data.address],

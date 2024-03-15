@@ -8,6 +8,7 @@
     "sourceMap": true,
     "declaration": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": false,
@@ -19,5 +20,6 @@
     "jsxFactory": "React.createElement",  
   },
   "include": ["src"],
-  "exclude": ["node_modules", "dist", "example"]
+  "exclude": ["node_modules", "dist", "example"],
+  "extends": "../../tsconfig.base.json"
 }

@@ -1,0 +1,18 @@
+{
+    "presets": [
+      [
+        "@nx/react/babel",
+        {
+          "runtime": "automatic",
+          "useBuiltIns": "usage"
+        }
+      ]
+    ],
+    "plugins": [],
+    "exclude": [
+      "**/node_modules/@polkadot/rpc-core/**",
+      "**/node_modules/mqtt/dist/**"
+    ],
+    "ignore": ["**/node_modules/@polkadot/rpc-core/**"]
+  }
+  

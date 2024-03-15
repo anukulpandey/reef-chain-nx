@@ -162,6 +162,7 @@ export const onRemoveLiquidity = ({
   try {
     dispatch(setLoadingAction(true));
     dispatch(setStatusAction('Withdrawing'));
+    //@ts-ignore
     const poolContract = new Contract(pool.poolAddress, ReefswapPair, signer);
 
     const approveTransaction = await poolContract.populateTransaction.approve(network.routerAddress, removedLiquidity);

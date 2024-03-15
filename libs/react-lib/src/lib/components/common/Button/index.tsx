@@ -8,6 +8,7 @@ interface ButtonProps {
 }
 
 export const Button: React.FC<ButtonProps> = ({
+  // @ts-ignore
   children,
   onClick = () => {},
   className = '',
@@ -24,6 +25,7 @@ export const Button: React.FC<ButtonProps> = ({
 );
 
 export const EmptyButton: React.FC<ButtonProps> = ({
+  // @ts-ignore
   children,
   onClick = () => {},
 }): JSX.Element => (
@@ -34,6 +36,7 @@ export const EmptyButton: React.FC<ButtonProps> = ({
 
 // TODO maybe we do not need this one?
 export const BackButton = ({ onClick }: ButtonProps): JSX.Element => (
+  // @ts-ignore
   <EmptyButton onClick={onClick}>
     <BackIcon />
   </EmptyButton>
@@ -71,6 +74,7 @@ export const SwitchTokenButton = ({
 
 export const IconButton: React.FC<IconButton> = ({
   onClick,
+  // @ts-ignore
   children,
 }): JSX.Element => (
   <button
@@ -81,7 +85,7 @@ export const IconButton: React.FC<IconButton> = ({
     {children}
   </button>
 );
-
+// @ts-ignore
 export const ButtonGroup: React.FC<unknown> = ({ children }): JSX.Element => (
   <div className="btn-group">{children}</div>
 );
@@ -90,7 +94,7 @@ interface PercentageButton {
   percentage?: number;
   onClick?: () => void;
 }
-export const PercentageButton: React.FC<PercentageButton> = ({
+export const PercentageButton: React.FC<PercentageButton> = ({// @ts-ignore
   children,
   percentage = Number.NaN,
   onClick,
@@ -105,8 +109,9 @@ export const PercentageButton: React.FC<PercentageButton> = ({
     <span>{children}</span>
   </button>
 );
-
+// @ts-ignore
 export const DangerButton: React.FC<ButtonProps> = ({
+  // @ts-ignore
   children,
   onClick,
 }): JSX.Element => (

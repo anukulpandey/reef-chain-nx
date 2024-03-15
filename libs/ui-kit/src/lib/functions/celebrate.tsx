@@ -1,3 +1,4 @@
+import React from "react"
 import Container from "../helpers/Container"
 import Celebrate, { Type } from "../components/atoms/Celebrate"
 

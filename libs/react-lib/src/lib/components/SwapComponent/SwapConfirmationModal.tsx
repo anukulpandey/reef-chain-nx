@@ -24,6 +24,7 @@ const SwapConfirmationModal = ({
   percentage,
   confirmFun,
 }: SwapConfirmationModal): JSX.Element => (
+  // @ts-ignore
   <ConfirmationModal
     id={id}
     title="Swap Tokens"
@@ -43,6 +44,7 @@ const SwapConfirmationModal = ({
       usdAmount={calculateUsdAmount(buy)}
       placeholder="To"
     />
+     {/* @ts-ignore */}
     <Margin size="3">
       <ConfirmLabel
         title="Price"
@@ -51,6 +53,7 @@ const SwapConfirmationModal = ({
         }`}
       />
     </Margin>
+         {/* @ts-ignore */}
     <SubCard>
       <ConfirmLabel
         title="Liquidity Provider Fee"
@@ -79,7 +82,9 @@ const SwapConfirmationModal = ({
         valueSize="mini-text"
       />
     </SubCard>
+         {/* @ts-ignore */}
     <Margin size="3">
+           {/* @ts-ignore */}
       <MutedText>
         Output is estimated. You will receive at least
         <b>

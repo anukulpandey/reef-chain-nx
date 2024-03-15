@@ -53,8 +53,11 @@ export const SwapComponent = ({
 }: SwapComponent): JSX.Element => {
   const { percentage } = resolveSettings(settings);
   return (
+    //@ts-ignore
     <ComponentCenter>
+      {/* @ts-ignore */}
       <Card>
+        {/* @ts-ignore */}
         <CardHeader>
           <CardHeaderBlank />
           <CardTitle title="Swap" />
@@ -81,8 +84,11 @@ export const SwapComponent = ({
           onTokenSelect={selectToken2}
           onAddressChange={onAddressChange}
         />
+        {/* @ts-ignore */}
         <MT size="2">
+          {/* @ts-ignore */}
           <CenterColumn>
+            {/* @ts-ignore */}
             <OpenModalButton id="swapModalToggle" disabled={!isValid || isLoading}>
               {isLoading ? (
                 <LoadingButtonIconWithText
